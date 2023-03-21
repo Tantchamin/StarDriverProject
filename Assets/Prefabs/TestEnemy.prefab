@@ -312,7 +312,7 @@ MonoBehaviour:
   healthPointNetwork:
     m_InternalValue: 100
   setHealthPoint: 60
-  healthBar: {fileID: 4681681244060773961, guid: e1b58c24f42b6af4e9a7c8c7c6dab316, type: 3}
+  healthBar: {fileID: 5639464711033958900, guid: e1b58c24f42b6af4e9a7c8c7c6dab316, type: 3}
 --- !u!114 &4115195456932919489
 MonoBehaviour:
   m_ObjectHideFlags: 0
