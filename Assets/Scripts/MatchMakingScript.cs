@@ -95,7 +95,7 @@ public class MatchMakingScript : MonoBehaviour
     {
         try
         {
-            int maxPlayer = 4;
+            int maxPlayer = 2;
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(maxPlayer);
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
 
