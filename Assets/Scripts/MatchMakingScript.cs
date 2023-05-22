@@ -40,16 +40,17 @@ public class MatchMakingScript : MonoBehaviour
             matchMakingPanel.SetActive(true);
             
         }
+        if (playerNumber == 1)
+        {
+            bossSpawnScript.SpawnBoss();
+            playerNumber = 0;
+        }
 
     }
 
     private void Update()
     {
-        if(playerNumber == 2)
-        {
-            bossSpawnScript.SpawnBoss();
-            playerNumber = 0;
-        }
+        
     }
 
     private async Task<Lobby> JoinLobby()
