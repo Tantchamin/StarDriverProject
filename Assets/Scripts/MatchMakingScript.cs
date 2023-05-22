@@ -14,6 +14,7 @@ using ParrelSync;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using TMPro;
+using Unity.Networking;
 
 public class MatchMakingScript : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class MatchMakingScript : MonoBehaviour
 
     public async void StartGame()
     {
+        
         //startButton.SetActive(false);
         matchMakingPanel.SetActive(false);
         playerName = playNameInput.GetComponent<TMP_InputField>().text;
@@ -39,6 +41,7 @@ public class MatchMakingScript : MonoBehaviour
             matchMakingPanel.SetActive(true);
             
         }
+        bossSpawnScript.SpawnBoss();
 
     }
 
@@ -63,7 +66,6 @@ public class MatchMakingScript : MonoBehaviour
                 RelayServerData relayServerData = new RelayServerData(joinAllocation, "dtls");
                 NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
                 NetworkManager.Singleton.StartClient();
-                bossSpawnScript.SpawnBoss();
                 return lobby;
             }
             return null;
