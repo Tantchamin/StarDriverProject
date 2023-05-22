@@ -24,7 +24,7 @@ public class MatchMakingScript : MonoBehaviour
     string lobbyName = "MyLobby";
     private Lobby joinedLobby;
     public BossSpawnScript bossSpawnScript;
-    int playerNumber = 0;
+    public int playerNumber = 0;
 
     public async void StartGame()
     {
