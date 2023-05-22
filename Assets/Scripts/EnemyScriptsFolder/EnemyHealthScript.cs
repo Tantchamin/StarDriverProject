@@ -20,7 +20,7 @@ public class EnemyHealthScript : NetworkBehaviour
         loginManager = GameObject.FindGameObjectWithTag("LoginManager").GetComponent<LoginManagerScript>();
         LeaveButton = GameObject.FindGameObjectWithTag("LeaveButton");
         healthPointNetwork.Value = setHealthPoint;
-        LeaveButton.SetActive(false);
+        //LeaveButton.SetActive(false);
         Debug.Log("BossHP: " + healthPointNetwork.Value);
         hpBar = Instantiate(healthBar, Vector3.zero, Quaternion.identity) as Slider;
         hpBar.transform.SetParent(canvas.transform);
