@@ -61,6 +61,8 @@ public class MatchMakingScript : MonoBehaviour
                 JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
 
                 RelayServerData relayServerData = new RelayServerData(joinAllocation, "dtls");
+                NetworkManager.Singleton.NetworkConfig.ConnectionData =
+        System.Text.Encoding.ASCII.GetBytes(playerName);
                 NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
                 NetworkManager.Singleton.StartClient();
                 return lobby;
