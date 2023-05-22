@@ -1632,7 +1632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialPanel: {fileID: 999189453}
   mainMenuPanel: {fileID: 958549437}
-  playMenuPanel: {fileID: 8787536310719928061}
+  playMenuPanel: {fileID: 360308519}
 --- !u!1 &649278730
 GameObject:
   m_ObjectHideFlags: 0
@@ -6096,10 +6096,6 @@ PrefabInstance:
     - target: {fileID: 8391932670014097824, guid: bba3d5f1d3cd55d438c8ed890ccf8d1e, type: 3}
       propertyPath: m_Name
       value: LoginPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 8391932670014097824, guid: bba3d5f1d3cd55d438c8ed890ccf8d1e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8391932670014097839, guid: bba3d5f1d3cd55d438c8ed890ccf8d1e, type: 3}
       propertyPath: m_Pivot.x
