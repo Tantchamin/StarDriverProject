@@ -61,8 +61,8 @@ public class MatchMakingScript : MonoBehaviour
                 JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
 
                 RelayServerData relayServerData = new RelayServerData(joinAllocation, "dtls");
-                NetworkManager.Singleton.NetworkConfig.ConnectionData =
-        System.Text.Encoding.ASCII.GetBytes(playerName);
+                //NetworkManager.Singleton.NetworkConfig.ConnectionData =
+        //System.Text.Encoding.ASCII.GetBytes(playerName);
                 NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
                 NetworkManager.Singleton.StartClient();
                 return lobby;
@@ -132,7 +132,7 @@ public class MatchMakingScript : MonoBehaviour
             Debug.Log("Created Lobby : " + lobby.Name + " , " + lobby.MaxPlayers + " , " + lobby.Id + " , " + lobby.LobbyCode);
 
             RelayServerData relayServerData = new RelayServerData(allocation, "dtls");
-            NetworkManager.Singleton.ConnectionApprovalCallback = ApprovalCheck;
+            //NetworkManager.Singleton.ConnectionApprovalCallback = ApprovalCheck;
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
             NetworkManager.Singleton.StartHost();
 
