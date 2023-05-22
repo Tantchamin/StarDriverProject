@@ -1860,7 +1860,7 @@ MonoBehaviour:
       OverridingTargetPrefab: {fileID: 0}
     TickRate: 30
     ClientConnectionBufferTimeout: 10
-    ConnectionApproval: 0
+    ConnectionApproval: 1
     ConnectionData: 
     EnableTimeResync: 0
     TimeResyncInterval: 30
@@ -2550,6 +2550,8 @@ MonoBehaviour:
   playNameInput: {fileID: 8787536310189878618}
   startButton: {fileID: 8787536310481593631}
   matchMakingPanel: {fileID: 8787536310719928061}
+  waitingText: {fileID: 37334701}
+  bossSpawnScript: {fileID: 974073014}
 --- !u!4 &825856489
 Transform:
   m_ObjectHideFlags: 0
