@@ -39,12 +39,6 @@ public class MatchMakingScript : MonoBehaviour
             matchMakingPanel.SetActive(true);
             
         }
-        if (playerNumber == 1)
-        {
-            bossSpawnScript.SpawnBoss();
-            playerNumber = 0;
-        }
-        playerNumber += 1;
 
     }
 
@@ -69,6 +63,7 @@ public class MatchMakingScript : MonoBehaviour
                 RelayServerData relayServerData = new RelayServerData(joinAllocation, "dtls");
                 NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
                 NetworkManager.Singleton.StartClient();
+                bossSpawnScript.SpawnBoss();
                 return lobby;
             }
             return null;
