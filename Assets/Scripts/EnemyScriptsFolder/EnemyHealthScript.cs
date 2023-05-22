@@ -30,8 +30,8 @@ public class EnemyHealthScript : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 hpBarPos = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 1f, 0));
-        hpBar.transform.position = hpBarPos;
+        //Vector3 hpBarPos = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 1f, 0));
+        //hpBar.transform.position = hpBarPos;
 
         if (healthPointNetwork.Value == 0)
         {
