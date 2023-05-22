@@ -33,7 +33,6 @@ public class MatchMakingScript : MonoBehaviour
         playerName = playNameInput.GetComponent<TMP_InputField>().text;
         //joinedLobby = await CreateLobby();
         joinedLobby = await JoinLobby() ?? await CreateLobby();
-        playerNumber += 1;
         if (joinedLobby == null)
         {
             startButton.SetActive(true);
@@ -45,6 +44,7 @@ public class MatchMakingScript : MonoBehaviour
             bossSpawnScript.SpawnBoss();
             playerNumber = 0;
         }
+        playerNumber += 1;
 
     }
 
