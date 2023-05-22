@@ -24,6 +24,7 @@ public class MatchMakingScript : MonoBehaviour
     string lobbyName = "MyLobby";
     private Lobby joinedLobby;
     public BossSpawnScript bossSpawnScript;
+    int playerNumber = 0;
 
     public async void StartGame()
     {
@@ -32,14 +33,23 @@ public class MatchMakingScript : MonoBehaviour
         playerName = playNameInput.GetComponent<TMP_InputField>().text;
         //joinedLobby = await CreateLobby();
         joinedLobby = await JoinLobby() ?? await CreateLobby();
+        playerNumber += 1;
         if (joinedLobby == null)
         {
             startButton.SetActive(true);
             matchMakingPanel.SetActive(true);
             
         }
-        bossSpawnScript.SpawnBoss();
-        waitingText.SetActive(false);
+
+    }
+
+    private void Update()
+    {
+        if(playerNumber == 2)
+        {
+            bossSpawnScript.SpawnBoss();
+            playerNumber = 0;
+        }
     }
 
     private async Task<Lobby> JoinLobby()
@@ -127,7 +137,7 @@ public class MatchMakingScript : MonoBehaviour
             RelayServerData relayServerData = new RelayServerData(allocation, "dtls");
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
             NetworkManager.Singleton.StartHost();
-
+            waitingText.SetActive(true);
             LobbyManagerScript.Instance.PrintPlayers(lobby);
             return lobby;
         }
