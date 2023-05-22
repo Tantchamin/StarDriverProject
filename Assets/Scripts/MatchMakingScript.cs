@@ -19,10 +19,13 @@ public class MatchMakingScript : MonoBehaviour
 {
     public TMP_InputField playNameInput;
     public GameObject startButton;
-    public GameObject matchMakingPanel;
+    public GameObject matchMakingPanel, waitingText;
     private string playerName;
     string lobbyName = "MyLobby";
     private Lobby joinedLobby;
+    bool firstPlayer = true;
+    public BossSpawnScript bossSpawnScript;
+
 
     public async void StartGame()
     {
@@ -36,6 +39,12 @@ public class MatchMakingScript : MonoBehaviour
             startButton.SetActive(true);
             matchMakingPanel.SetActive(true);
         }
+        if (firstPlayer == false)
+        {
+            bossSpawnScript.SpawnBoss();
+            waitingText.SetActive(false);
+        }
+        firstPlayer = false;
     }
 
     private async Task<Lobby> JoinLobby()
