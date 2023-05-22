@@ -45,7 +45,7 @@ public class LobbyManagerScript : Singleton<LobbyManagerScript>
         try
         {
             string lobbyName = "MyLobby";
-            int maxPlayer = 4;
+            int maxPlayer = 2;
             CreateLobbyOptions createLobbyOptions = new CreateLobbyOptions
             {
                 IsPrivate = false,
