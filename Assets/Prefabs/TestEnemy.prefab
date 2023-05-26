@@ -144,8 +144,6 @@ GameObject:
   - component: {fileID: 4115195456932919494}
   - component: {fileID: 4115195456932919495}
   - component: {fileID: 4115195456932919488}
-  - component: {fileID: 4115195456932919489}
-  - component: {fileID: 2073088477140191396}
   - component: {fileID: 8303069272797336705}
   - component: {fileID: 5848946970892840935}
   - component: {fileID: 1782302086529097115}
@@ -313,34 +311,6 @@ MonoBehaviour:
     m_InternalValue: 100
   setHealthPoint: 60
   healthBar: {fileID: 5639464711033958900, guid: e1b58c24f42b6af4e9a7c8c7c6dab316, type: 3}
---- !u!114 &4115195456932919489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4115195456932919549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89c7bf93cf9e3cb40abbff9d6d6e5872, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2073088477140191396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4115195456932919549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dc090ba6c9f5b74293335137eefef56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 7416527452137958540, guid: 05adfe38a0f0d70458f118504abca5d2, type: 3}
-  fireRate: 0.2
-  angle: 0
-  anglePlus: 20
 --- !u!65 &8303069272797336705
 BoxCollider:
   m_ObjectHideFlags: 0
