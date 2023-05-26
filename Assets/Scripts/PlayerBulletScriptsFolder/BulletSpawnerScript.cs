@@ -5,7 +5,8 @@ using Unity.Netcode;
 
 public class BulletSpawnerScript : NetworkBehaviour
 {
-    public GameObject bulletPrefab;
+    public GameObject bulletPrefab, bulleType2Prefab;
+    private int bulletType2Capacity = 3;
     private List<GameObject> spawnedBullet = new List<GameObject>();
     public GameObject firePoint;
 
@@ -23,6 +24,10 @@ public class BulletSpawnerScript : NetworkBehaviour
         {
             SpawnBulletServerRpc();
         }
+        if (Input.GetKeyDown(KeyCode.X) && bulletType2Capacity != 0)
+        {
+            SpawnBulletType2ServerRpc();
+        }
 
     }
 
@@ -35,6 +40,22 @@ public class BulletSpawnerScript : NetworkBehaviour
         spawnedBullet.Add(bullet);
         bullet.GetComponent<BulletScript>().bulletSpawner = this;
         bullet.GetComponent<NetworkObject>().Spawn();
+    }
+
+    [ServerRpc]
+    void SpawnBulletType2ServerRpc()
+    {
+        Vector3 spawnPos = transform.position + (transform.forward * -1.5f) + (transform.up * 0.8f);
+        Quaternion spawnRot = transform.rotation;
+        GameObject bullet = Instantiate(bulleType2Prefab, firePoint.transform.position, bulletPrefab.transform.rotation);
+        spawnedBullet.Add(bullet);
+        bullet.GetComponent<BulletScript>().bulletSpawner = this;
+        bullet.GetComponent<NetworkObject>().Spawn();
+        if(bulletType2Capacity != 0)
+        {
+            bulletType2Capacity -= 1;
+
+        }
     }
 
     [ServerRpc (RequireOwnership = false)]
