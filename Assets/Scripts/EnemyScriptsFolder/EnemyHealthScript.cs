@@ -10,8 +10,8 @@ public class EnemyHealthScript : NetworkBehaviour
     public int setHealthPoint = 100;
     GameObject LeaveButton;
     LoginManagerScript loginManager;
-    public Slider healthBar;
-    private Slider hpBar;
+    //public Slider healthBar;
+    //private Slider hpBar;
 
     // Start is called before the first frame update
     void Start()
@@ -22,16 +22,16 @@ public class EnemyHealthScript : NetworkBehaviour
         healthPointNetwork.Value = setHealthPoint;
         LeaveButton.SetActive(false);
         Debug.Log("BossHP: " + healthPointNetwork.Value);
-        hpBar = Instantiate(healthBar, Vector3.zero, Quaternion.identity) as Slider;
-        hpBar.transform.SetParent(canvas.transform);
+        //hpBar = Instantiate(healthBar, Vector3.zero, Quaternion.identity) as Slider;
+        //hpBar.transform.SetParent(canvas.transform);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 hpBarPos = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 1f, 0));
-        hpBar.transform.position = hpBarPos;
+       // Vector3 hpBarPos = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 1f, 0));
+       // hpBar.transform.position = hpBarPos;
 
         if (healthPointNetwork.Value == 0)
         {
@@ -69,7 +69,7 @@ public class EnemyHealthScript : NetworkBehaviour
     {
         loginManager.winButton.SetActive(true);
         LeaveButton.SetActive(true);
-        healthBar.enabled = false;
+        //healthBar.enabled = false;
     }
 
 
