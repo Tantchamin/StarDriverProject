@@ -43,7 +43,7 @@ public class MatchMakingScript : MonoBehaviour
             startButton.SetActive(true);
             matchMakingPanel.SetActive(true);
         }
-        
+
 
     }
 
@@ -61,8 +61,8 @@ public class MatchMakingScript : MonoBehaviour
                 JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
 
                 RelayServerData relayServerData = new RelayServerData(joinAllocation, "dtls");
-                NetworkManager.Singleton.NetworkConfig.ConnectionData =
-        System.Text.Encoding.ASCII.GetBytes(playerName);
+
+                NetworkManager.Singleton.ConnectionApprovalCallback = ApprovalCheck;
                 NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
                 NetworkManager.Singleton.StartClient();
                 return lobby;
