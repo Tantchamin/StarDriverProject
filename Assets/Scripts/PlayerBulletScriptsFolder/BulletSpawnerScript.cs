@@ -29,14 +29,14 @@ public class BulletSpawnerScript : NetworkBehaviour
         {
             if (Input.GetKeyDown(KeyCode.X) && PlayerA_bulletType2Capacity.Value != 0)
             {
-                SpawnBulletType2ServerRpc();
+                PlayerA_SpawnBulletType2ServerRpc();
             }
         }
         else
         {
             if (Input.GetKeyDown(KeyCode.X) && PlayerB_bulletType2Capacity.Value != 0)
             {
-                SpawnBulletType2ServerRpc();
+                PlayerB_SpawnBulletType2ServerRpc();
             }
         }
 
@@ -55,7 +55,7 @@ public class BulletSpawnerScript : NetworkBehaviour
     }
 
     [ServerRpc(RequireOwnership = false)]
-    void SpawnBulletType2ServerRpc()
+    void PlayerA_SpawnBulletType2ServerRpc()
     {
         Vector3 spawnPos = transform.position + (transform.forward * -1.5f) + (transform.up * 0.8f);
         Quaternion spawnRot = transform.rotation;
@@ -63,22 +63,29 @@ public class BulletSpawnerScript : NetworkBehaviour
         spawnedBullet.Add(bullet);
         bullet.GetComponent<BulletScript>().bulletSpawner = this;
         bullet.GetComponent<NetworkObject>().Spawn();
-        if (IsOwner)
+        if (PlayerA_bulletType2Capacity.Value != 0)
         {
-            if (PlayerA_bulletType2Capacity.Value != 0)
-            {
-                PlayerA_bulletType2Capacity.Value -= 1;
-            }
+            PlayerA_bulletType2Capacity.Value -= 1;
         }
-        else
-        {
-            if (PlayerB_bulletType2Capacity.Value != 0)
-            {
-                PlayerB_bulletType2Capacity.Value -= 1;
-            }
-        }
-        Debug.Log("PlayerA Type2: " + PlayerA_bulletType2Capacity.Value + "PlayerB Type2: " + PlayerB_bulletType2Capacity.Value);
+        Debug.Log("PlayerA Type2: " + PlayerA_bulletType2Capacity.Value + " PlayerB Type2: " + PlayerB_bulletType2Capacity.Value);
         
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    void PlayerB_SpawnBulletType2ServerRpc()
+    {
+        Vector3 spawnPos = transform.position + (transform.forward * -1.5f) + (transform.up * 0.8f);
+        Quaternion spawnRot = transform.rotation;
+        GameObject bullet = Instantiate(bulleType2Prefab, firePoint.transform.position, bulletPrefab.transform.rotation);
+        spawnedBullet.Add(bullet);
+        bullet.GetComponent<BulletScript>().bulletSpawner = this;
+        bullet.GetComponent<NetworkObject>().Spawn();
+        if (PlayerB_bulletType2Capacity.Value != 0)
+        {
+            PlayerB_bulletType2Capacity.Value -= 1;
+        }
+        Debug.Log("PlayerA Type2: " + PlayerA_bulletType2Capacity.Value + " PlayerB Type2: " + PlayerB_bulletType2Capacity.Value);
+
     }
 
     [ServerRpc (RequireOwnership = false)]

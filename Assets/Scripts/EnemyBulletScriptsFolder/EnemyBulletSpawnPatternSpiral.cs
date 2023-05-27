@@ -17,10 +17,11 @@ public class EnemyBulletSpawnPatternSpiral : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Fire", 0f, fireRate);
+        InvokeRepeating("FireServerRpc", 0f, fireRate);
     }
 
-    private void Fire()
+    [ServerRpc(RequireOwnership = false)]
+    private void FireServerRpc()
     {
         float bulDirX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180);
         float bulDirY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180);
