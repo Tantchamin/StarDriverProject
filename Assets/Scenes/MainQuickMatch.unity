@@ -3318,6 +3318,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 736716503}
+  - component: {fileID: 736716505}
+  - component: {fileID: 736716504}
   m_Layer: 5
   m_Name: SpecialBulletFolder
   m_TagString: Untagged
@@ -3351,6 +3353,45 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &736716504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736716502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1745007412
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &736716505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736716502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f97f149a34a28ed4ebca47555214b09b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerA_bullet:
+    m_InternalValue: 3
+  PlayerB_bullet:
+    m_InternalValue: 3
+  bulletUI:
+  - {fileID: 442687737}
+  - {fileID: 376057315}
+  - {fileID: 6640807}
+  - {fileID: 1655323417}
+  - {fileID: 1539717224}
+  - {fileID: 1939644584}
 --- !u!1 &825856487
 GameObject:
   m_ObjectHideFlags: 0
