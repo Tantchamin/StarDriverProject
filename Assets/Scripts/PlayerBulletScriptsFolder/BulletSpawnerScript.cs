@@ -54,7 +54,7 @@ public class BulletSpawnerScript : NetworkBehaviour
         bullet.GetComponent<NetworkObject>().Spawn();
     }
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     void SpawnBulletType2ServerRpc()
     {
         Vector3 spawnPos = transform.position + (transform.forward * -1.5f) + (transform.up * 0.8f);

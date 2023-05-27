@@ -33,7 +33,7 @@ public class EnemyHealthScript : NetworkBehaviour
        // Vector3 hpBarPos = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 1f, 0));
        // hpBar.transform.position = hpBarPos;
 
-        if (healthPointNetwork.Value == 0)
+        if (healthPointNetwork.Value <= 0)
         {
             
             DestroyServerRpc();
