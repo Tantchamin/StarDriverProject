@@ -77,6 +77,7 @@ public class BulletSpawnerScript : NetworkBehaviour
                 PlayerB_bulletType2Capacity.Value -= 1;
             }
         }
+        Debug.Log("PlayerA Type2: " + PlayerA_bulletType2Capacity.Value + "PlayerB Type2: " + PlayerB_bulletType2Capacity.Value);
         
     }
 
