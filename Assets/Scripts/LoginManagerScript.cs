@@ -171,15 +171,15 @@ public class LoginManagerScript : MonoBehaviour
         var connectionData = request.Payload;
         
         int byteLength = connectionData.Length;
-        bool isApprove = false;
-        if (byteLength > 0)
-        {
-            string clientData = System.Text.Encoding.ASCII.GetString(connectionData, 0, byteLength);
-            string hostData = userNameInput.GetComponent<TMP_InputField>().text;
-            //string clientPass = passNameInput.GetComponent<TMP_InputField>().text;
-            //Debug.Log("ClienentData: " + clientData + " ClientPass: " + clientPass + " HostData: " + hostData + "ServerPass: " + pass);
-            isApprove = approveConnection(clientData, hostData);
-        }
+        bool isApprove = true;
+        //if (byteLength > 0)
+        //{
+        //    string clientData = System.Text.Encoding.ASCII.GetString(connectionData, 0, byteLength);
+        //    string hostData = userNameInput.GetComponent<TMP_InputField>().text;
+        //    //string clientPass = passNameInput.GetComponent<TMP_InputField>().text;
+        //    //Debug.Log("ClienentData: " + clientData + " ClientPass: " + clientPass + " HostData: " + hostData + "ServerPass: " + pass);
+        //    isApprove = approveConnection(clientData, hostData);
+        //}
 
         // Your approval logic determines the following values
         response.Approved = isApprove;
