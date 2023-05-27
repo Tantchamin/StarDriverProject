@@ -6,7 +6,8 @@ using Unity.Netcode;
 public class BulletSpawnerScript : NetworkBehaviour
 {
     public GameObject bulletPrefab, bulleType2Prefab;
-    private int bulletType2Capacity = 3;
+    public NetworkVariable<int> PlayerA_bulletType2Capacity = new NetworkVariable<int>(3, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+    public NetworkVariable<int> PlayerB_bulletType2Capacity = new NetworkVariable<int>(3, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
     private List<GameObject> spawnedBullet = new List<GameObject>();
     public GameObject firePoint;
 
@@ -24,10 +25,21 @@ public class BulletSpawnerScript : NetworkBehaviour
         {
             SpawnBulletServerRpc();
         }
-        if (Input.GetKeyDown(KeyCode.X) && bulletType2Capacity != 0)
+        if (IsOwner)
         {
-            SpawnBulletType2ServerRpc();
+            if (Input.GetKeyDown(KeyCode.X) && PlayerA_bulletType2Capacity.Value != 0)
+            {
+                SpawnBulletType2ServerRpc();
+            }
         }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.X) && PlayerB_bulletType2Capacity.Value != 0)
+            {
+                SpawnBulletType2ServerRpc();
+            }
+        }
+
 
     }
 
@@ -51,11 +63,21 @@ public class BulletSpawnerScript : NetworkBehaviour
         spawnedBullet.Add(bullet);
         bullet.GetComponent<BulletScript>().bulletSpawner = this;
         bullet.GetComponent<NetworkObject>().Spawn();
-        if(bulletType2Capacity != 0)
+        if (IsOwner)
         {
-            bulletType2Capacity -= 1;
-
+            if (PlayerA_bulletType2Capacity.Value != 0)
+            {
+                PlayerA_bulletType2Capacity.Value -= 1;
+            }
         }
+        else
+        {
+            if (PlayerB_bulletType2Capacity.Value != 0)
+            {
+                PlayerB_bulletType2Capacity.Value -= 1;
+            }
+        }
+        
     }
 
     [ServerRpc (RequireOwnership = false)]
