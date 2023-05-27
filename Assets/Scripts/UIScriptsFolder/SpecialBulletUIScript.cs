@@ -22,7 +22,7 @@ public class SpecialBulletUIScript : NetworkBehaviour
         {
             if (Input.GetKeyDown(KeyCode.X) && PlayerB_bullet.Value != 0)
             {
-                PlayerB_BulletAdjustServerRpc();
+                PlayerB_BulletAdjustClientRpc();
             }
         }
 
@@ -86,8 +86,8 @@ public class SpecialBulletUIScript : NetworkBehaviour
         }
     }
 
-    [ServerRpc]
-    void PlayerB_BulletAdjustServerRpc()
+    [ClientRpc]
+    void PlayerB_BulletAdjustClientRpc()
     {
         PlayerB_bullet.Value -= 1;
     }
