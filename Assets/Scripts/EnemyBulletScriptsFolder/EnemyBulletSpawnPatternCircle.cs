@@ -16,11 +16,11 @@ public class EnemyBulletSpawnPatternCircle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("FireRpc", 1f, fireRate);   
+        InvokeRepeating("FireServerRpc", 1f, fireRate);   
     }
 
     [ServerRpc (RequireOwnership = false)]
-    private void FireRpc()
+    private void FireServerRpc()
     {
         float angleStep = (EndAngle - startAngle) / bulletSpawnAmount;
         float angle = startAngle;
