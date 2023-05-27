@@ -6,15 +6,14 @@ using Unity.Netcode;
 public class BulletSpawnerScript : NetworkBehaviour
 {
     public GameObject bulletPrefab, bulleType2Prefab;
-    public NetworkVariable<int> PlayerA_bulletType2Capacity = new NetworkVariable<int>(3, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
-    public NetworkVariable<int> PlayerB_bulletType2Capacity = new NetworkVariable<int>(3, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
     private List<GameObject> spawnedBullet = new List<GameObject>();
+    public SpecialBulletCapacityScript specialBulletCapacityScript;
     public GameObject firePoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        specialBulletCapacityScript = GameObject.FindGameObjectWithTag("BulletCapacity").GetComponent<SpecialBulletCapacityScript>();
     }
 
     // Update is called once per frame
@@ -27,14 +26,14 @@ public class BulletSpawnerScript : NetworkBehaviour
         }
         if (IsOwner)
         {
-            if (Input.GetKeyDown(KeyCode.X) && PlayerA_bulletType2Capacity.Value != 0)
+            if (Input.GetKeyDown(KeyCode.X) && specialBulletCapacityScript.PlayerA_bulletType2Capacity.Value != 0)
             {
                 PlayerA_SpawnBulletType2ServerRpc();
             }
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.X) && PlayerB_bulletType2Capacity.Value != 0)
+            if (Input.GetKeyDown(KeyCode.X) && specialBulletCapacityScript.PlayerB_bulletType2Capacity.Value != 0)
             {
                 PlayerB_SpawnBulletType2ServerRpc();
             }
@@ -63,11 +62,11 @@ public class BulletSpawnerScript : NetworkBehaviour
         spawnedBullet.Add(bullet);
         bullet.GetComponent<BulletScript>().bulletSpawner = this;
         bullet.GetComponent<NetworkObject>().Spawn();
-        if (PlayerA_bulletType2Capacity.Value != 0)
+        if (specialBulletCapacityScript.PlayerA_bulletType2Capacity.Value != 0)
         {
-            PlayerA_bulletType2Capacity.Value -= 1;
+            specialBulletCapacityScript.PlayerA_bulletType2Capacity.Value -= 1;
         }
-        Debug.Log("PlayerA Type2: " + PlayerA_bulletType2Capacity.Value + " PlayerB Type2: " + PlayerB_bulletType2Capacity.Value);
+        Debug.Log("PlayerA Type2: " + specialBulletCapacityScript.PlayerA_bulletType2Capacity.Value + " PlayerB Type2: " + specialBulletCapacityScript.PlayerB_bulletType2Capacity.Value);
         
     }
 
@@ -80,11 +79,11 @@ public class BulletSpawnerScript : NetworkBehaviour
         spawnedBullet.Add(bullet);
         bullet.GetComponent<BulletScript>().bulletSpawner = this;
         bullet.GetComponent<NetworkObject>().Spawn();
-        if (PlayerB_bulletType2Capacity.Value != 0)
+        if (specialBulletCapacityScript.PlayerB_bulletType2Capacity.Value != 0)
         {
-            PlayerB_bulletType2Capacity.Value -= 1;
+            specialBulletCapacityScript.PlayerB_bulletType2Capacity.Value -= 1;
         }
-        Debug.Log("PlayerA Type2: " + PlayerA_bulletType2Capacity.Value + " PlayerB Type2: " + PlayerB_bulletType2Capacity.Value);
+        Debug.Log("PlayerA Type2: " + specialBulletCapacityScript.PlayerA_bulletType2Capacity.Value + " PlayerB Type2: " + specialBulletCapacityScript.PlayerB_bulletType2Capacity.Value);
 
     }
 

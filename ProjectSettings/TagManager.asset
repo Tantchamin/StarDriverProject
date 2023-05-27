@@ -15,6 +15,7 @@ TagManager:
   - LoseButton
   - P1Text
   - P2Text
+  - BulletCapacity
   layers:
   - Default
   - TransparentFX
