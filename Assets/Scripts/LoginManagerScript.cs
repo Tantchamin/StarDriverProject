@@ -17,6 +17,7 @@ public class LoginManagerScript : MonoBehaviour
     int playerCount = 0;
     bool firstPlayer = true;
     string pass;
+    string joinCode;
     public Button clientButton;
 
     private void Start()
@@ -100,15 +101,25 @@ public class LoginManagerScript : MonoBehaviour
 
     }
 
-    public void Host()
+    public async void Host()
     {
+        if (RelayManagerScript.Instance.IsRelayEnabled)
+        {
+            await RelayManagerScript.Instance.CreateRelay();
+        }
         NetworkManager.Singleton.ConnectionApprovalCallback = ApprovalCheck;
         NetworkManager.Singleton.StartHost();
         waitingText.SetActive(true);
     }
 
-    public void Client()
-    {
+    public async void Client()
+    { //setIpAddress();
+        joinCode = passNameInput.GetComponent<TMP_InputField>().text;
+        if (RelayManagerScript.Instance.IsRelayEnabled && !string.IsNullOrEmpty(joinCode))
+        {
+            await RelayManagerScript.Instance.JoinRelay(joinCode);
+        }
+
         string userPass = passNameInput.GetComponent<TMP_InputField>().text;
         string userName = userNameInput.GetComponent<TMP_InputField>().text;
         NetworkManager.Singleton.NetworkConfig.ConnectionData =
