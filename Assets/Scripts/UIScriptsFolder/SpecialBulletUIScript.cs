@@ -86,8 +86,8 @@ public class SpecialBulletUIScript : NetworkBehaviour
         }
     }
 
-    [ClientRpc]
-    void PlayerB_BulletAdjustClientRpc()
+    [ServerRpc (RequireOwnership = false)]
+    void PlayerB_BulletAdjustServerRpc()
     {
         PlayerB_bullet.Value -= 1;
     }
