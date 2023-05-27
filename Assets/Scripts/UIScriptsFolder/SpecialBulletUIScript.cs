@@ -49,19 +49,19 @@ public class SpecialBulletUIScript : MonoBehaviour
 
     void playerBBulletCheck()
     {
-        if (specialBulletCapacityScript.GetPlayerABulletCapacity() == 3)
+        if (specialBulletCapacityScript.GetPlayerBBulletCapacity() == 3)
         {
             specialBulletUI[3].SetActive(true);
             specialBulletUI[4].SetActive(true);
             specialBulletUI[5].SetActive(true);
         }
-        else if (specialBulletCapacityScript.GetPlayerABulletCapacity() == 2)
+        else if (specialBulletCapacityScript.GetPlayerBBulletCapacity() == 2)
         {
             specialBulletUI[3].SetActive(true);
             specialBulletUI[4].SetActive(true);
             specialBulletUI[5].SetActive(false);
         }
-        else if (specialBulletCapacityScript.GetPlayerABulletCapacity() == 1)
+        else if (specialBulletCapacityScript.GetPlayerBBulletCapacity() == 1)
         {
             specialBulletUI[3].SetActive(true);
             specialBulletUI[4].SetActive(false);
