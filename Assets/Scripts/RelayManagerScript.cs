@@ -10,10 +10,13 @@ using Unity.Netcode.Transports.UTP;
 using Unity.Networking.Transport.Relay;
 using Unity.Netcode;
 using System.Threading.Tasks;
+using TMPro;
 //using ParrelSync;
 
 public class RelayManagerScript : Singleton<RelayManagerScript>
 {
+    public TMP_Text joinCodeText;
+
     public UnityTransport Transport =>
         NetworkManager.Singleton.GetComponent<UnityTransport>();
     public bool IsRelayEnabled =>
@@ -43,6 +46,7 @@ public class RelayManagerScript : Singleton<RelayManagerScript>
         {
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(2);
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
+            joinCodeText.text = "Join Code: " + joinCode;
 
             RelayServerData relayServerData = new RelayServerData(allocation, "dtls");
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
