@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using System.Security.Permissions;
 
 public class BulletSpawnerScript : NetworkBehaviour
 {
@@ -10,11 +11,12 @@ public class BulletSpawnerScript : NetworkBehaviour
     public NetworkVariable<int> PlayerB_bulletType2Capacity = new NetworkVariable<int>(3, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
     private List<GameObject> spawnedBullet = new List<GameObject>();
     public GameObject firePoint;
+    public AudioSource shootsound, spshootsound;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+ 
     }
 
     // Update is called once per frame
@@ -23,12 +25,14 @@ public class BulletSpawnerScript : NetworkBehaviour
         if (!IsOwner) return;
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            shootsound.Play();
             SpawnBulletServerRpc();
         }
         if (IsOwner)
         {
             if (Input.GetKeyDown(KeyCode.X) && PlayerA_bulletType2Capacity.Value != 0)
             {
+                spshootsound.Play();
                 PlayerA_SpawnBulletType2ServerRpc();
             }
         }
@@ -36,6 +40,7 @@ public class BulletSpawnerScript : NetworkBehaviour
         {
             if (Input.GetKeyDown(KeyCode.X) && PlayerB_bulletType2Capacity.Value != 0)
             {
+                spshootsound.Play();
                 PlayerB_SpawnBulletType2ServerRpc();
             }
         }

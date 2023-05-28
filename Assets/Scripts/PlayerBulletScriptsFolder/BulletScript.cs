@@ -8,7 +8,7 @@ public class BulletScript : NetworkBehaviour
     public BulletSpawnerScript bulletSpawner;
     public float speed = 2;
     public int damage = 1;
-   // public GameObject bulletEffectPrefab;
+    // public GameObject bulletEffectPrefab;
 
     //private void OnCollisionEnter(Collision collision)
     //{
@@ -45,7 +45,7 @@ public class BulletScript : NetworkBehaviour
             ulong networkObkjectId = GetComponent<NetworkObject>().NetworkObjectId;
             //SpawnBulletEffect();
             bulletSpawner.DestroyServerRpc(networkObkjectId);
-            Debug.Log("Ora");
+            Debug.Log("Oras");
         }
     }
 

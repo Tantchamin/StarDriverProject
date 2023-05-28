@@ -72,7 +72,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8683911771183138981, guid: a68581973138de047962ad22291be361, type: 3}
   bulleType2Prefab: {fileID: 8683911771183138981, guid: f0f45815b03241c46b10781ad2782e6e, type: 3}
+  PlayerA_bulletType2Capacity:
+    m_InternalValue: 3
+  PlayerB_bulletType2Capacity:
+    m_InternalValue: 3
   firePoint: {fileID: 5348591626176809742}
+  shootsound: {fileID: 4225576076492360556, guid: 0033b84cdd01f3b438078d23b4337f2b, type: 3}
+  spshootsound: {fileID: 3783075113479244733, guid: 24df97069c590724ea5dc7ce3f3b55f8, type: 3}
 --- !u!54 &-546229116798295085
 Rigidbody:
   m_ObjectHideFlags: 0
