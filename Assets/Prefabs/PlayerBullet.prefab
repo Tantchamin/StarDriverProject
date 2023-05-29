@@ -177,6 +177,7 @@ MonoBehaviour:
   speed: 10
   damage: 1
   bulletEffectPrefab: {fileID: 41941119047374792, guid: bef07c7bf6970b8459652007e43a9a64, type: 3}
+  bomeEffectPrefab: {fileID: 9028895897348862665, guid: 6177cd46e52fdd34a88052568fdbb18f, type: 3}
 --- !u!65 &6541359258675618762
 BoxCollider:
   m_ObjectHideFlags: 0
