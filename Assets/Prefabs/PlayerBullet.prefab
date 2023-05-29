@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5034137374497291329}
   - component: {fileID: 731289575654740519}
   - component: {fileID: 20625307867721608}
+  - component: {fileID: 6948048070579073887}
   - component: {fileID: 6541359258675618762}
   - component: {fileID: -6206084150567984515}
   m_Layer: 0
@@ -176,6 +177,18 @@ MonoBehaviour:
   bulletSpawner: {fileID: -426868754025767221, guid: 194a6160090769942bbc3de5bc809639, type: 3}
   speed: 10
   damage: 1
+--- !u!114 &6948048070579073887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8683911771183138981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed21f13ec11326b47aea2dc639c57279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   bulletEffectPrefab: {fileID: 41941119047374792, guid: bef07c7bf6970b8459652007e43a9a64, type: 3}
 --- !u!65 &6541359258675618762
 BoxCollider:
