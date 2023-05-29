@@ -15,6 +15,8 @@ public class PlayerSpawnScript : NetworkBehaviour
     private Renderer[] renderers;
     BulletSpawnerScript bulletSpawner;
     LoginManagerScript loginManager;
+    public SpecialBulletUIScript specialBulletUIScript;
+    public BulletSpawnerScript bulletSpawnerScript;
 
     public NetworkVariable<int> healthPointA = new NetworkVariable<int>(3,
         NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
@@ -26,6 +28,7 @@ public class PlayerSpawnScript : NetworkBehaviour
         bulletSpawner = GetComponent<BulletSpawnerScript>();
         renderers = GetComponentsInChildren<Renderer>();
         loginManager = GameObject.FindGameObjectWithTag("LoginManager").GetComponent<LoginManagerScript>();
+        specialBulletUIScript = GameObject.FindGameObjectWithTag("BulletUI").GetComponent<SpecialBulletUIScript>();
         sprite = boxCollider.GetComponent<BoxCollider>();
 
         healthPointA.Value = 3;
@@ -60,6 +63,12 @@ public class PlayerSpawnScript : NetworkBehaviour
                 SetPlayerState(false);
                 Debug.Log("A: " + healthPointA.Value + " B: " + healthPointB.Value);
             }
+            else if (other.CompareTag("Item"))
+            {
+                specialBulletUIScript.PlayerA_bullet.Value += 1;
+                bulletSpawnerScript.PlayerA_bulletType2Capacity.Value += 1;
+                Debug.Log("A Bullet UI: " + specialBulletUIScript.PlayerA_bullet.Value + " A Bullet Capacity: " + bulletSpawnerScript.PlayerA_bulletType2Capacity.Value);
+            }
         }
         else
         {
@@ -77,6 +86,12 @@ public class PlayerSpawnScript : NetworkBehaviour
                 bulletSpawner.enabled = false;
                 SetPlayerState(false);
                 Debug.Log("A: " + healthPointA.Value + " B: " + healthPointB.Value);
+            }
+            else if (other.CompareTag("Item"))
+            {
+                specialBulletUIScript.PlayerB_bullet.Value += 1;
+                bulletSpawnerScript.PlayerB_bulletType2Capacity.Value += 1;
+                Debug.Log("B Bullet UI: " + specialBulletUIScript.PlayerB_bullet.Value + " B Bullet Capacity: " + bulletSpawnerScript.PlayerB_bulletType2Capacity.Value);
             }
         }
 

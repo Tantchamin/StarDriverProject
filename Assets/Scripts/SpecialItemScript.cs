@@ -10,7 +10,6 @@ public class SpecialItemScript : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!IsOwner) return;
 
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "DeathZone")
         {

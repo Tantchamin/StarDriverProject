@@ -161,6 +161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 4841900096316203875}
   scripts: []
+  specialBulletUIScript: {fileID: 0}
+  bulletSpawnerScript: {fileID: -8070380755755191088}
   healthPointA:
     m_InternalValue: 3
   healthPointB:
