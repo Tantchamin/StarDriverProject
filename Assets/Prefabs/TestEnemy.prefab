@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 5848946970892840935}
   - component: {fileID: 1782302086529097115}
   - component: {fileID: 8028871010240384773}
+  - component: {fileID: -5557003621249161911}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Enemy
@@ -312,7 +313,6 @@ MonoBehaviour:
   healthPointNetwork:
     m_InternalValue: 100
   setHealthPoint: 60
-  healthBar: {fileID: 5639464711033958900, guid: e1b58c24f42b6af4e9a7c8c7c6dab316, type: 3}
 --- !u!114 &4115195456932919489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,3 +401,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!114 &-5557003621249161911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4115195456932919549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4cfb75c38cb93b4ab03f756602c9f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialBullet: {fileID: 8276549487209382898, guid: 88276d0362548e3449cc1dac2a869f55, type: 3}
+  fireRate: 2
