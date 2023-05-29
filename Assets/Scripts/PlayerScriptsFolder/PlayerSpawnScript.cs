@@ -34,14 +34,6 @@ public class PlayerSpawnScript : NetworkBehaviour
         healthPointA.Value = 3;
         healthPointB.Value = 3;
 
-        //if (playerStatus.isPlayer1 == true)
-        //{
-        //    isPlayer1 = true;
-        //}
-        //else
-        //{
-        //    isPlayer1 = false;
-        //}
     }
 
     private void OnTriggerEnter(Collider other)
@@ -65,8 +57,11 @@ public class PlayerSpawnScript : NetworkBehaviour
             }
             else if (other.CompareTag("Item"))
             {
-                specialBulletUIScript.PlayerA_bullet.Value += 1;
-                bulletSpawnerScript.PlayerA_bulletType2Capacity.Value += 1;
+                if(specialBulletUIScript.PlayerA_bullet.Value < 3)
+                {
+                    specialBulletUIScript.PlayerA_bullet.Value += 1;
+                    bulletSpawnerScript.PlayerA_bulletType2Capacity.Value += 1;
+                }
                 Debug.Log("A Bullet UI: " + specialBulletUIScript.PlayerA_bullet.Value + " A Bullet Capacity: " + bulletSpawnerScript.PlayerA_bulletType2Capacity.Value);
             }
         }
@@ -89,8 +84,11 @@ public class PlayerSpawnScript : NetworkBehaviour
             }
             else if (other.CompareTag("Item"))
             {
-                specialBulletUIScript.PlayerB_bullet.Value += 1;
-                bulletSpawnerScript.PlayerB_bulletType2Capacity.Value += 1;
+                if (specialBulletUIScript.PlayerB_bullet.Value < 3)
+                {
+                    specialBulletUIScript.PlayerB_bullet.Value += 1;
+                    bulletSpawnerScript.PlayerB_bulletType2Capacity.Value += 1;
+                }
                 Debug.Log("B Bullet UI: " + specialBulletUIScript.PlayerB_bullet.Value + " B Bullet Capacity: " + bulletSpawnerScript.PlayerB_bulletType2Capacity.Value);
             }
         }
