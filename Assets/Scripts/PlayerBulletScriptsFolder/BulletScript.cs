@@ -43,7 +43,10 @@ public class BulletScript : NetworkBehaviour
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "DeathZone")
         {
             ulong networkObkjectId = GetComponent<NetworkObject>().NetworkObjectId;
-            SpawnBulletEffect();
+            if(other.gameObject.tag == "Enemy")
+            {
+                SpawnBulletEffect();
+            }
             bulletSpawner.DestroyServerRpc(networkObkjectId);
             Debug.Log("Oras");
         }
