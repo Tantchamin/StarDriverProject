@@ -44,7 +44,6 @@ public class BulletScript : NetworkBehaviour
         {
             ulong networkObkjectId = GetComponent<NetworkObject>().NetworkObjectId;
             SpawnBulletEffect();
-            deletebullet();
             bulletSpawner.DestroyServerRpc(networkObkjectId);
             Debug.Log("Oras");
         }
@@ -60,12 +59,6 @@ public class BulletScript : NetworkBehaviour
         GameObject bulleteffect = Instantiate(bulletEffectPrefab, transform.position, Quaternion.identity);
         bulleteffect.GetComponent<NetworkObject>().Spawn();
     }
-
-    private void deletebullet()
-    {
-        Destroy(bulletEffectPrefab, 3); //you have 15 seconds before the objects deletes itself
-    }
-
 
 
 }

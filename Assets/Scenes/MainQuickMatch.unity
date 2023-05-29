@@ -3439,7 +3439,7 @@ MonoBehaviour:
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
-      Prefab: {fileID: 8276549487209382898, guid: 88276d0362548e3449cc1dac2a869f55, type: 3}
+      Prefab: {fileID: 41941119047374792, guid: bef07c7bf6970b8459652007e43a9a64, type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
@@ -5371,9 +5371,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 534422818}
+      - m_Target: {fileID: 534422823}
         m_TargetAssemblyTypeName: MainMenuButtonScript, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: CloseThisGameObject
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 735233024}
