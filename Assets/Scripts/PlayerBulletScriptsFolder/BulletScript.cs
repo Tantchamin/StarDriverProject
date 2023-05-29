@@ -8,7 +8,7 @@ public class BulletScript : NetworkBehaviour
     public BulletSpawnerScript bulletSpawner;
     public float speed = 2;
     public int damage = 1;
-    // public GameObject bulletEffectPrefab;
+    public GameObject bulletEffectPrefab;
 
     //private void OnCollisionEnter(Collision collision)
     //{
@@ -43,7 +43,7 @@ public class BulletScript : NetworkBehaviour
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "DeathZone")
         {
             ulong networkObkjectId = GetComponent<NetworkObject>().NetworkObjectId;
-            //SpawnBulletEffect();
+            SpawnBulletEffect();
             bulletSpawner.DestroyServerRpc(networkObkjectId);
             Debug.Log("Oras");
         }
@@ -54,11 +54,11 @@ public class BulletScript : NetworkBehaviour
         transform.position += transform.up * speed * Time.deltaTime;
     }
 
-    //private void SpawnBulletEffect()
-    //{
-    //    GameObject bulleteffect = Instantiate(bulletEffectPrefab, transform.position, Quaternion.identity);
-    //    bulleteffect.GetComponent<NetworkObject>().Spawn();
-    //}
+    private void SpawnBulletEffect()
+    {
+        GameObject bulleteffect = Instantiate(bulletEffectPrefab, transform.position, Quaternion.identity);
+        bulleteffect.GetComponent<NetworkObject>().Spawn();
+    }
 
 
 
