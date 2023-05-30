@@ -312,7 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPointNetwork:
     m_InternalValue: 100
-  setHealthPoint: 60
+  setHealthPoint: 90
 --- !u!114 &4115195456932919489
 MonoBehaviour:
   m_ObjectHideFlags: 0

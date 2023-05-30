@@ -176,6 +176,7 @@ MonoBehaviour:
   bulletSpawner: {fileID: -426868754025767221, guid: 194a6160090769942bbc3de5bc809639, type: 3}
   speed: 15
   damage: 10
+  bulletEffectPrefab: {fileID: 9028895897348862665, guid: 6177cd46e52fdd34a88052568fdbb18f, type: 3}
 --- !u!65 &6541359258675618762
 BoxCollider:
   m_ObjectHideFlags: 0
